@@ -14,6 +14,10 @@ const Home = () => {
     setResult('');
   }
 
+  const backspaceClick = () =>{
+    setResult(result.slice(0, -1));
+  }
+
   const calculate = () =>{
     setResult(eval(result).toString());
   }
@@ -52,12 +56,20 @@ const Home = () => {
             <CalculatorBtn value="%" onClick={clickHandler} />
             <CalculatorBtn value="+" onClick={clickHandler} />
           </div>
-          <div className="grid grid-cols-2 gap-3 px-6 pb-6">
+          <div className="grid grid-cols-3 gap-3 px-6 pb-6">
             <input
               type="button"
               value="Clear"
               className="h-14 rounded-2xl bg-rose-500 text-white text-xl font-semibold shadow-md hover:bg-rose-600 active:bg-rose-700 transition-colors"
               onClick={clearClick}
+            />
+            <input
+              type="button"
+              value="⌫"
+              // value="Backspace"
+              aria-label="Backspace"
+              className="h-14 rounded-2xl bg-amber-500 text-white text-xl font-semibold shadow-md hover:bg-amber-600 active:bg-amber-700 transition-colors"
+              onClick={backspaceClick}
             />
             <input
               type="button"
